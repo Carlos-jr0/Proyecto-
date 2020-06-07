@@ -1,0 +1,1 @@
+alumno,peso-4-0.telefono-3-15.carne-2-0.fecha_nacimiento-6-0.nombre-3-100.

@@ -19,7 +19,7 @@ public class Menu {
         db.checkEntidades();
         
         Entidad en = new Entidad();
-        en.setNombre("alumno");
+        en.setNombre("Persona");
         en.addAtributo("nombre", Atributo.TYPE_STRING, 100);
         en.addAtributo("fecha_nacimiento", Atributo.TYPE_DATE, 0);
         en.addAtributo("carne", Atributo.TYPE_LONG, 0);
@@ -28,7 +28,7 @@ public class Menu {
         db.addEntidad(en);
         
         Entidad curso = new Entidad();
-        curso.setNombre("curso");
+        curso.setNombre("Materia");
         curso.addAtributo("nombre", Atributo.TYPE_STRING, 100);
         db.addEntidad(curso);
         
@@ -41,7 +41,7 @@ public class Menu {
         
         if (manager.addRegistro("Pedro, 15-02-1990, 7690183135, 45568978, 185.2")) {
             manager.addRegistro("Juan, 15-02-1991, 7690183135, 45568978, 185.2");
-            manager.addRegistro("Solo, 15-02-1989, 7690183135, 45568978, 185.2");
+            manager.addRegistro("Marco, 15-02-1989, 7690183135, 45568978, 185.2");
             manager.removeRegistro("Juan, 15-02-1991, 7690183135, 45568978, 185.2");
             manager.continuar();
         } else {
