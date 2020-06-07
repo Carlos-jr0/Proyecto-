@@ -10,9 +10,9 @@ import java.util.Stack;
 public class BaseDato {
 	private Stack<Entidad> entidades = new Stack<Entidad>();
     private String path;
-    private boolean DEBUG = true; // Seteamos un debug mode, si está en TRUE mostramos todos los mensajes de debug
+    private boolean DEBUG = true; // Seteamos un modo de depuracion, si está en TRUE mostramos todos los mensajes de debug"la direccion donde se guardaran los atributos"
     private Entidad entidadActual; // Creamos una variable entidad para crear registros. Si el DB tiene una entidad se convierte en manager de esa entidad
-    private Stack<String> archivos = new Stack<String>();
+    private Stack<String> archivos = new Stack<String>();//pila de strings, introducir strings en el archivo
     
     /* Inicializamos la BD con una ruta para guardar las entidades */
     BaseDato(String path) {
@@ -43,7 +43,7 @@ public class BaseDato {
     public void mostrarEntidades() {
         Stack<Entidad> mostrarEntidades = entidades;
         
-        while(!mostrarEntidades.empty()) {//si mostrar entidades esta vacia
+        while(!mostrarEntidades.empty()) {//si mostrar entidades no esta vacia
             Entidad en = mostrarEntidades.pop();
             
             if (DEBUG)
@@ -53,12 +53,12 @@ public class BaseDato {
     
     /* Verificamos si existen archivos de entidad, si existen agregamos las entidades a la BD */
     public void checkEntidades() throws FileNotFoundException, IOException {
-        File carpeta = new File(path);
-        File[] listaDeArchivos = carpeta.listFiles();
+        File carpeta = new File(path);//crea un objeto file asociado a la path del directorio de trabajo
+        File[] listaDeArchivos = carpeta.listFiles();//obtenemos su contenido, un array de string
         
-        if (listaDeArchivos.length > 0) {
-        for (File file : listaDeArchivos) {
-            if (file.isFile()) {
+        if (listaDeArchivos.length > 0) {//si la longitud es mayor a cero
+        for (File file : listaDeArchivos) {//lo sacamos por pantalla
+            if (file.isFile()) {//indica si el objeto File es un fichero
                 BufferedReader br = new BufferedReader(new FileReader(path + file.getName()));
                 Entidad en = new Entidad();
                 String linea = br.readLine();
@@ -70,7 +70,7 @@ public class BaseDato {
                 for (String attr : atrs) {
                     String[] atr = attr.split("-");
                     en.addAtributo(atr[0], Integer.valueOf(atr[1]), Integer.valueOf(atr[2]));
-                }
+                }//devuelve un nuevo objeto integer()
                 
                 this.addEntidad(en);
             }
@@ -80,9 +80,9 @@ public class BaseDato {
     
     /* Revisamos si existen archivos de la entidad actual y los agregamos a la pila de archivos */
     public void checkArchivos() throws FileNotFoundException, IOException {
-        File archivo = new File(path + entidadActual.getNombre() + ".dat");
+        File archivo = new File(path + entidadActual.getNombre() + ".dat");//
         
-        if (archivo.isFile()) {
+        if (archivo.isFile()) {//si es un fichero
             BufferedReader br = new BufferedReader(new FileReader(archivo));
             String linea = br.readLine();
             

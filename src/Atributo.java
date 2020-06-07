@@ -3,7 +3,7 @@ public class Atributo {
 	private String nombre;
 	private int tipo;
 	private int longitud;
-	 /* Seteamos los tipos de dato que usara el atributo */
+	 // Seteamos los tipos de dato que usara el atributo,permite el acceso a los metodos y variables
 	public final static int TYPE_INT=1;
 	public final static int TYPE_LONG=2;
 	public final static int TYPE_STRING=3;

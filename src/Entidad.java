@@ -1,9 +1,11 @@
-import java.util.List;
+
 import java.util.Stack;
 
 
 public class Entidad {
 	 private String nombre;
+	 /*Clase stack llamada tipo lifo, ultiimo en entrar primero en salir, sentencia para 
+	 verificar se es equilibrado o no en simbolos*/
 	    private Stack<Atributo> atributos = new Stack<Atributo>();
 	    
 	    public String getNombre() {
@@ -34,7 +36,7 @@ public class Entidad {
 	        String resultado = "";
 	        Stack<Atributo> mostrarAtrs = atributos;
 	        
-	        while (!mostrarAtrs.empty()) {
+	        while (!mostrarAtrs.empty()) {//comprueba si esta vacia
 	            Atributo atr = mostrarAtrs.pop();
 	            
 	            resultado += atr.getNombre() + "-" + atr.getTipo() + "-" + atr.getLongitud() + ".";
